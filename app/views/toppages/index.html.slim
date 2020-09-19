@@ -1,0 +1,23 @@
+
+
+h2 Descri
+
+h5
+ | Descri is a website that provide users with port information in Japan. Then, users do not have to google around to get local info anymor.
+   Let's get started.
+ 
+
+h4 First of all, please sign up and watch inside.
+
+
+p 
+  | if you have any request or comment, please fill in the comment column on the page, or email us directly.
+  
+-if user_signed_in?
+  .toppage-button.align-center.grid-x
+    = link_to "See All Ports" , ports_path, class: "button rounded bordered shadow secondary cell large-4"
+
+-else
+  .toppage-button.align-center.grid-x
+    = link_to "Sign Up" , new_user_registration_path, class: "button rounded bordered shadow success cell large-4"
+    = link_to "Log in" , new_user_session_path, class: "button rounded bordered shadow hollow success cell large-4"

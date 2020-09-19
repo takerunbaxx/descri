@@ -1,0 +1,125 @@
+      
+
+      article.grid-container
+        .grid-x.cell
+          nav aria-label="You are here:" role="navigation"
+            ul.breadcrumbs
+              li 
+                =link_to "Ports list", ports_path
+              li 
+                =link_to "#{@port.name}", new_port_path
+              li.disabled Gene Splicing
+              li
+                span.show-for-srCurrent: Cloning
+        
+        div class="grid-x grid-margin-x"
+
+          div class="medium-6 large-5 cell large-offset-1"
+            h3 #{@port.name}
+            table
+                tr 
+                  td Location
+                  td #{@port.address}
+                  
+                tr
+                  td contact 1
+                  td #{@port.contact1}
+                
+                tr
+                  td contact 2
+                  td #{@port.contact2}
+            
+
+          div class="medium-6 cell image"
+            - unless @port.port_images[0] == nil
+              =image_tag @port.port_images[0].variant(resize: "300x300"), class: "port-main-image image_preview"
+            -else
+              =image_tag "https://placehold.it/650x350", class: "thumbnail portpic-default"
+          
+
+        div class=""
+        <hr>
+          ul class="tabs" data-tabs="" id="example-tabs" role="tablist" data-e="6tdo1e-e"
+            li class="tabs-title is-active" role="presentation" 
+              a href="#panel1" aria-selected="true" role="tab" aria-controls="panel1" id="panel1-label" tabindex="0" Port Introduction
+            li class="tabs-title" role="presentation" 
+              a href="#panel2" role="tab" aria-controls="panel2" aria-selected="false" id="panel2-label" tabindex="-1" For Tourists
+          
+          div class="tabs-content" data-tabs-content="example-tabs" aria-hidden="true"
+            
+            div class="tabs-panel is-active" id="panel1" role="tabpanel" aria-labelledby="panel1-label"
+              h4 Reviews
+              div class="media-object stack-for-small"
+                .media-object-section
+                  - unless @port.port_images[1] == nil
+                    =image_tag @port.port_images[1].variant(resize: "200x200"), class: "port-sub-image1 image_preview hidden"
+                  -else
+                    =image_tag "https://placehold.it/200x200", class: "thumbnail sub-portpic-default1"
+                
+                .media-object-section
+                  h5 Greeting from  #{@port.name}
+                  p = @port.information
+                  
+              div class="media-object stack-for-small"
+                .media-object-section
+                  - unless @port.port_images[2] == nil
+                    =image_tag @port.port_images[2].variant(resize: "200x200"), class: "port-sub-image2 image_preview hidden"
+                  -else
+                    =image_tag "https://placehold.it/200x200", class: "thumbnail sub-portpic-default2"
+                
+                .media-object-section
+                  h5 What is #{@port.name}
+                  p = @port.detail
+
+              div class="media-object stack-for-small"
+                .media-object-section
+                  - unless @port.port_images[3] == nil
+                    =image_tag @port.port_images[3].variant(resize: "200x200"), class: "port-sub-image3 image_preview hidden"
+                  -else
+                    =image_tag "https://placehold.it/200x200", class: "thumbnail sub-portpic-default3"
+                
+                .media-object-section
+                  h5 More information
+                  p = @port.summary
+              
+            -if current_user
+              =render "comments/comment_form", port: @port
+                    
+                    
+            div class="tabs-panel is active" id="panel2" role="tabpanel" aria-labelledby="panel2-label" aria-hidden="false"
+              div class="grid-x grid-margin-x medium-up-3 large-up-5"
+                
+                div class="cell"
+                  img class="thumbnail" src="https://placehold.it/350x200"
+                  =link_to "#{@port.rep_name1}", "#"
+                  div.text-area
+                    p 
+                      |#{@port.rep_info1}
+
+                div class="cell"
+                  img class="thumbnail" src="https://placehold.it/350x200"
+                  =link_to "#{@port.rep_name2}", "#"
+                  p 
+                    |#{@port.rep_info2}
+                
+                div class="cell"
+                  img class="thumbnail" src="https://placehold.it/350x200"
+                  h5 TO BE ANNOUNCED
+                  a href="#" class="button hollow tiny expanded" Buy Now
+                
+                div class="cell"
+                  img class="thumbnail" src="https://placehold.it/350x200"
+                  h5 TO BE ANNOUNCED 
+                  a href="#" class="button hollow tiny expanded" Buy Now
+                
+                div class="cell"
+                  img class="thumbnail" src="https://placehold.it/350x200"
+                  h5 TO BE ANNOUNCED 
+                  a href="#" class="button hollow tiny expanded" Buy Now
+      
+      
+
+        
+
+
+

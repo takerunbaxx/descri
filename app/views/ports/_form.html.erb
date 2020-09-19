@@ -1,0 +1,163 @@
+      
+  <article class="grid-container">
+    <div class="grid-x cell">
+      
+      <nav aria-label="You are here:" role="navigation">
+        <ul class="breadcrumbs">
+          <li>
+            <%=link_to "Ports list", ports_path%></li>
+          <li>
+            <%=link_to port.name, new_port_path%></li>
+          <li class="disabled">new port</li> 
+          <li>
+            <span class="show-for-srCurrent: Cloning"></span></li>
+        </ul>
+      </nav>
+    </div>
+    
+    <%=form_with(model: port, multiple: true, local: true) do |f| %>    
+      <div class="grid-x grid-margin-x">
+
+        <div class="medium-6 large-5 cell large-offset-1">
+          <h3>Create/Edit Port Page</h3>
+     
+            <%=f.label :name, "(Please add the name of port)"%>
+            <%=f.text_field :name%>
+              
+            <%=f.label :contact1, "(Please add first contact information)"%>
+            <%=f.text_field :contact1%>
+              
+            <%=f.label :contact2, "(Please add second contact information)"%>
+            <%=f.text_field :contact2%>
+              
+            <div class="grid-x">
+              <%=f.label :address, "Add where the new port is located"%>
+              <div class="small-9 cell">
+              <%=f.text_field :address%>
+              </div>
+              <div class="field image_field">
+              <%=f.label :port_images%>
+              <%=f.file_field :port_images, class: "image_field"%>
+              </div>
+            </div>
+        </div>
+
+        <div class="medium-6 cell image">
+            
+          <img class="port-main-image hidden" src="#"/>
+          <%if port.port_images.attached?%>
+            <%=image_tag port.port_images[0].variant(resize: "300x300"), class: "port-main-image image_preview"%>
+          <%else%>
+            <%=image_tag "https://placehold.it/650x350", class: "thumbnail portpic-default"%>
+          <%end%>
+          <h5><i class="fas fa-arrow-up"></i>Please add a main picture above </h5> 
+          
+        </div>
+      </div>  
+        
+      <div class="">
+      <hr>
+        <ul class="tabs" data-tabs="" id="example-tabs" role="tablist" data-e="6tdo1e-e">
+          <li class="tabs-title is-active" role="presentation" >
+            <a href="#panel1" aria-selected="true" role="tab" aria-controls="panel1" id="panel1-label" tabindex="0">Port Introduction</a> </li>
+          <li class="tabs-title" role="presentation" >
+            <a href="#panel2" role="tab" aria-controls="panel2" aria-selected="false" id="panel2-label" tabindex="-1">For Tourists</a> </li>
+        </ul>  
+        
+        <div class="tabs-content" data-tabs-content="example-tabs" aria-hidden="true">
+            
+          <div class="tabs-panel is-active" id="panel1" role="tabpanel" aria-labelledby="panel1-label">
+            <h4>Reviews</h4> 
+            
+            <div class="media-object stack-for-small">
+              <div class="media-object-section">
+                <img class="port-sub-image1 hidden" src="#" width="200px" height="200px"/>
+                <%if port.port_images.attached?%>
+                  <%=image_tag port.port_images[1].variant(resize: "200x200"), class: "port-sub-image1 image_preview hidden"%>
+                <%else%>
+                  <%=image_tag "https://placehold.it/200x200", class: "thumbnail sub-portpic-default1"%>
+                <%end%>
+              </div>
+              <div class="media-object-section">
+                <h5>Greeting from  <%=port.name%> </h5> 
+                  <%=f.file_field :port_images, class: "subimage_field1"%>
+                  <%=f.text_area :information, class: "area-width area-height"%>
+              </div>   
+            </div>
+            
+            <div class="media-object stack-for-small">
+              <div class="media-object-section">
+                <img class="port-sub-image2 hidden" src="#" width="200px" height="200px"/>
+                <%if port.port_images.attached?%>
+                  <%=image_tag port.port_images[2].variant(resize: "200x200"), class: "port-sub-image2 image_preview hidden"%>
+                <%else%>
+                  <%=image_tag "https://placehold.it/200x200", class: "thumbnail sub-portpic-default2"%>
+                <%end%>
+              </div>
+              <div class="media-object-section">
+                <h5>What is <%=port.name%></h5> 
+                 <%=f.file_field :port_images, class: "subimage_field2"%>
+                 <%=f.text_area :information, class: "area-width area-height"%>
+              </div>
+            </div>
+            
+            <div class="media-object stack-for-small">
+              <div class="media-object-section">
+                <img class="port-sub-image3 hidden" src="#" width="200px" height="200px"/>
+                <%if port.port_images.attached?%>
+                  <%=image_tag port.port_images[3].variant(resize: "200x200"), class: "port-sub-image3 image_preview hidden"%>
+                <%else%>
+                  <%=image_tag "https://placehold.it/200x200", class: "thumbnail sub-portpic-default3"%>
+                <%end%>
+              </div>
+
+              <div class="media-object-section">
+                <h5>More information</h5> 
+                 <%=f.file_field :port_images, class: "subimage_field3" %>
+                 <%=f.text_area :summary, class: "area-width area-height"%>
+              </div>    
+            </div>        
+          </div>
+        
+          <div class="tabs-panel is active" id="panel2" role="tabpanel" aria-labelledby="panel2-label" aria-hidden="false">
+            <div class="grid-x grid-margin-x medium-up-3 large-up-5">
+              
+              <div class="cell">
+                <img class="thumbnail" src="https://placehold.it/350x200"/>
+                <%=f.label :rep_name1, "Popular Spot (Please fill in the explanation and upload a picture on the spot)"%>
+                <%=f.text_area :rep_info1%>
+                <%=f.file_field :port_images%>
+              </div>  
+              
+              <div class="cell">
+                <img class="thumbnail" src="https://placehold.it/350x200"/>
+                <%=f.label :rep_name2, "Deep Spot(Please fill in the explanation and upload a picture on the spot)"%>
+                <%=f.text_area :rep_info2%>
+                <%=f.file_field :port_images%>
+              </div>  
+              
+              <div class="cell">
+                <img class="thumbnail" src="https://placehold.it/350x200"/>
+                <h5>TO BE ANNOUNCED</h5> 
+              </div> 
+            
+              <div class="cell">
+                <img class="thumbnail" src="https://placehold.it/350x200"/>
+               <h5>TO BE ANNOUNCED </h5>
+              </div>
+                
+              <div class="cell">
+                <img class="thumbnail" src="https://placehold.it/350x200"/>
+                <h5>TO BE ANNOUNCED </h5>
+              </div> 
+                  
+            </div>
+          </div>
+        </div>
+      <%=f.submit "Submit", class: "button info expanded"%>
+      </div>
+      <%end%>
+   </article>
+      
+    
+     

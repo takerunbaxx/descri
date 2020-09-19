@@ -1,0 +1,82 @@
+
+div.off-canvas-content data-off-canvas-content=""
+
+  .callout.primary
+    article.grid-container
+      div
+        h1 Hello! Descri Fans!
+        p.lead 
+          | Select a port where you would like to edit. 
+  
+  article.grid-container
+    div class="grid-x grid-margin-x small-up-2 medium-up-3 large-up-4"
+      
+      -@ports.each do |port|
+      
+        .cell
+          img class="thumbnail" src="https://placehold.it/550x550"
+          h5.text-center
+            =link_to "#{port.name}", port_path(port.id)
+            
+          -if current_admin
+            .button-group.align-center
+              =link_to "Edit port", edit_port_path(port.id), class: "button warning"
+              =link_to "Delete port", port_path(port.id), method: :delete, data: {confirm: "Are you sure?"}, class: "button alert"
+      
+      //.cell
+        <img class="thumbnail" src="https://placehold.it/550x550"/>
+        =link_to "Hakodate", "#"
+      
+      //.cell
+        <img class="thumbnail" src="https://placehold.it/550x550"/>
+        =link_to "Muroran", "#"
+      
+      //.cell
+        <img class="thumbnail" src="https://placehold.it/550x550"/>
+        =link_to "Sakata", "#"
+      
+      //.cell
+        <img class="thumbnail" src="https://placehold.it/550x550"/>
+        =link_to "Tokyo", "#"
+      
+      //.cell
+        <img class="thumbnail" src="https://placehold.it/550x550"/>
+        =link_to "Yokohama", "#"
+      
+      //.cell
+        <img class="thumbnail" src="https://placehold.it/550x550"/>
+        =link_to "Osaka", "#"
+      
+      //.cell
+        <img class="thumbnail" src="https://placehold.it/550x550"/>
+        =link_to "Kobe", "#"
+      
+      //.cell
+        <img class="thumbnail" src="https://placehold.it/550x550"/>
+        =link_to "Sakaiminato", "#"
+      
+      //.cell
+        <img class="thumbnail" src="https://placehold.it/550x550"/>
+        =link_to "Hakata", "#"
+      
+      //.cell
+        <img class="thumbnail" src="https://placehold.it/550x550"/>
+        =link_to "Nagasaki", "#"
+      
+      //.cell
+        <img class="thumbnail" src="https://placehold.it/550x550"/>
+        =link_to "Kagoshima", "#"
+      
+      //.cell
+        <img class="thumbnail" src="https://placehold.it/550x550"/>
+        =link_to "Aomori", "#"
+      
+      //.cell
+        <img class="thumbnail" src="https://placehold.it/550x550"/>
+        =link_to "Naha", "#"
+      
+      //.cell
+        <img class="thumbnail" src="https://placehold.it/550x550"/>
+        =link_to "Ishigaki", "#"
+<hr>
+  

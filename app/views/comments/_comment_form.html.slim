@@ -1,0 +1,9 @@
+   
+   
+    label
+      =form_with(model:@comment, url: comments_path(port.id), method: :post, local: true) do |f|
+        =f.hidden_field :user_id, value: current_user.id
+        =f.hidden_field :admin_id, value: port.admin.id
+        =f.label :content, "Please leave your commnet if you want to know anything else."
+        =f.text_area :content
+        =f.submit "comment!", class: "button shadow secondary"

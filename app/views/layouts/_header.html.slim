@@ -1,0 +1,32 @@
+
+  .top-bar
+  
+    .top-bar-left
+      ul.dropdown.menu.grid-x
+        
+        li.menu-text.cell.large-1
+          =link_to "descri", root_path, class: "header-font cellx"
+        
+ 
+        - unless signed_in?
+          li.margin-left-2.margin-right-2
+            p
+              |For Administration ->
+          
+          li.cell.large-1
+            =link_to "Sign-up", new_admin_registration_path, class: "header-font-item hollow button radious shadow  promary"
+          li.cell.large-1
+            =link_to "Login", new_admin_session_path, class: "header-font-item button radious bordered shadow promary"
+
+            
+        - if admin_signed_in?
+          li.cell.large-1
+            =link_to "Logout", destroy_admin_session_path, class: "header-font-item cell hollow button promary shadow", method: :delete, data: {confirm: "Are you sure?"}
+          li.cell.large-1
+            =link_to "Administration", admin_path(current_admin.id), class: "header-font-item cell button promary shadow"
+        
+            
+        - if user_signed_in?
+          li.cell.large-1.align-center
+            =link_to "Logout", destroy_user_session_path, class: "header-font-item cell hollow button success shadow", method: :delete, data: {confirm: "Are you sure?"}
+

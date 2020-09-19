@@ -1,0 +1,17 @@
+ div class="callout large primary"
+   div class="text-center"
+     h1 Comments List
+     h2 class="subheader" Please reply by E-mail
+
+
+ -@comments.each do |comment|
+   div class="grid-x align-center"
+     div class="cell medium-8"
+       div class="blog-post callout success"
+         h5 
+           a 
+             =comment.user.email
+         p 
+           =comment.content
+
+    

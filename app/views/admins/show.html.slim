@@ -1,0 +1,54 @@
+  
+  
+  div.off-canvas-content data-off-canvas-content=""
+
+  .callout.primary
+    article.grid-container
+      div
+        h1 Hello! Here is for admins.
+        p.lead 
+          | Select a port where you would like to edit. 
+          
+
+  div class="grid-x align-center"
+        
+    div class="cell medium-8"
+      .blog-post
+        h3.admin-show-title Add new port
+
+        img class="thumbnail" src="https://placehold.it/850x350"
+        p 
+          |You can add a new port here.
+          
+        .callout
+          ul class="menu simple"
+            li 
+              =link_to "Create new port", new_port_path, data: {turbolinks: false}
+
+  div class="grid-x align-center"
+      
+    div class="cell medium-8"
+      .blog-post
+        h3.admin-show-title Check registered ports
+        img class="thumbnail" src="https://placehold.it/850x350"
+        p
+          |You can check the contents of ports that you have made so far.
+
+        .callout
+          ul class="menu simple"
+            li  
+              =link_to "See current ports", ports_path
+
+
+  div class="grid-x align-center"
+    div class="cell medium-8"
+      .blog-post
+        h3.admin-show-title Comment check
+        img class="thumbnail" src="https://placehold.it/850x350"
+        p 
+          |Please check comments here constantly since users comment on ports if needed.
+
+        .callout
+          ul class="menu simple"
+            li 
+              =link_to "Comments", comment_index_admins_path
