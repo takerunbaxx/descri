@@ -14,13 +14,15 @@ html lang="ja"
      
      script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
      script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"
-    
+     script src="https://code.jquery.com/jquery-3.4.1.min.js"
+     script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"
+     script src="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.2.3/motion-ui.min.js"
   
   
   body
     =render "layouts/header"
     =render "layouts/flash"
-    p.alert = alert
+
     
     .container
       = yield
@@ -28,8 +30,3 @@ html lang="ja"
     =render "layouts/footer"
   
 
-    script src="https://code.jquery.com/jquery-2.1.4.min.js"
-    script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"
-    script src="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.2.3/motion-ui.min.js"
-    javascript:
-      $(document).foundation();

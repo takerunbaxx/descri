@@ -37,7 +37,7 @@
               </div>
               <div class="field image_field">
               <%=f.label :port_images%>
-              <%=f.file_field :port_images, class: "image_field"%>
+              <%=f.file_field :port_images, multiple: true, direct_upload: true, class: "image_field"%>
               </div>
             </div>
         </div>
@@ -80,7 +80,7 @@
               </div>
               <div class="media-object-section">
                 <h5>Greeting from  <%=port.name%> </h5> 
-                  <%=f.file_field :port_images, class: "subimage_field1"%>
+                  <%=f.file_field :port_images, multiple: true, direct_upload: true, class: "subimage_field1"%>
                   <%=f.text_area :information, class: "area-width area-height"%>
               </div>   
             </div>
@@ -96,7 +96,7 @@
               </div>
               <div class="media-object-section">
                 <h5>What is <%=port.name%></h5> 
-                 <%=f.file_field :port_images, class: "subimage_field2"%>
+                 <%=f.file_field :port_images, multiple: true, direct_upload: true, class: "subimage_field2"%>
                  <%=f.text_area :information, class: "area-width area-height"%>
               </div>
             </div>
@@ -113,7 +113,7 @@
 
               <div class="media-object-section">
                 <h5>More information</h5> 
-                 <%=f.file_field :port_images, class: "subimage_field3" %>
+                 <%=f.file_field :port_images, multiple: true, direct_upload: true, class: "subimage_field3" %>
                  <%=f.text_area :summary, class: "area-width area-height"%>
               </div>    
             </div>        
@@ -126,14 +126,14 @@
                 <img class="thumbnail" src="https://placehold.it/350x200"/>
                 <%=f.label :rep_name1, "Popular Spot (Please fill in the explanation and upload a picture on the spot)"%>
                 <%=f.text_area :rep_info1%>
-                <%=f.file_field :port_images%>
+                <%=f.file_field :port_images, multiple: true, direct_upload: true%>
               </div>  
               
               <div class="cell">
                 <img class="thumbnail" src="https://placehold.it/350x200"/>
                 <%=f.label :rep_name2, "Deep Spot(Please fill in the explanation and upload a picture on the spot)"%>
                 <%=f.text_area :rep_info2%>
-                <%=f.file_field :port_images%>
+                <%f.file_field :port_images, multiple: true, direct_upload: true%>
               </div>  
               
               <div class="cell">

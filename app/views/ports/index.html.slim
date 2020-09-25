@@ -14,69 +14,19 @@ div.off-canvas-content data-off-canvas-content=""
       -@ports.each do |port|
       
         .cell
-          img class="thumbnail" src="https://placehold.it/550x550"
+          - unless port.port_images[0] == nil
+            =image_tag port.port_images[0].variant(resize: "550x550"), class: "port-sub-image1 image_preview hidden"
+          -else
+            =image_tag "https://placehold.it/550x550", class: "thumbnail"
+
           h5.text-center
-            =link_to "#{port.name}", port_path(port.id)
-            
+            =link_to "#{port.name}", port_path(port.id), data: {"turbolinks"=>false}
+            -if port.created_at = @add_timing 
+              span.margin-left-1
+                i class="fas fa-lightbulb"          
           -if current_admin
             .button-group.align-center
               =link_to "Edit port", edit_port_path(port.id), class: "button warning"
               =link_to "Delete port", port_path(port.id), method: :delete, data: {confirm: "Are you sure?"}, class: "button alert"
       
-      //.cell
-        <img class="thumbnail" src="https://placehold.it/550x550"/>
-        =link_to "Hakodate", "#"
       
-      //.cell
-        <img class="thumbnail" src="https://placehold.it/550x550"/>
-        =link_to "Muroran", "#"
-      
-      //.cell
-        <img class="thumbnail" src="https://placehold.it/550x550"/>
-        =link_to "Sakata", "#"
-      
-      //.cell
-        <img class="thumbnail" src="https://placehold.it/550x550"/>
-        =link_to "Tokyo", "#"
-      
-      //.cell
-        <img class="thumbnail" src="https://placehold.it/550x550"/>
-        =link_to "Yokohama", "#"
-      
-      //.cell
-        <img class="thumbnail" src="https://placehold.it/550x550"/>
-        =link_to "Osaka", "#"
-      
-      //.cell
-        <img class="thumbnail" src="https://placehold.it/550x550"/>
-        =link_to "Kobe", "#"
-      
-      //.cell
-        <img class="thumbnail" src="https://placehold.it/550x550"/>
-        =link_to "Sakaiminato", "#"
-      
-      //.cell
-        <img class="thumbnail" src="https://placehold.it/550x550"/>
-        =link_to "Hakata", "#"
-      
-      //.cell
-        <img class="thumbnail" src="https://placehold.it/550x550"/>
-        =link_to "Nagasaki", "#"
-      
-      //.cell
-        <img class="thumbnail" src="https://placehold.it/550x550"/>
-        =link_to "Kagoshima", "#"
-      
-      //.cell
-        <img class="thumbnail" src="https://placehold.it/550x550"/>
-        =link_to "Aomori", "#"
-      
-      //.cell
-        <img class="thumbnail" src="https://placehold.it/550x550"/>
-        =link_to "Naha", "#"
-      
-      //.cell
-        <img class="thumbnail" src="https://placehold.it/550x550"/>
-        =link_to "Ishigaki", "#"
-<hr>
-  

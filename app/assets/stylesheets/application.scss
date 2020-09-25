@@ -80,5 +80,18 @@ li{
     width: 800px;
 }
 
+.flash{
+    z-index: 10000;
+    text-align: center;
+    color: #000;
+    &__alert{
+    background-color: #CC0000;}
+    &__notice {
+    background-color: #78FF94;}
+}
 
+.fa-lightbulb{
+    color: #FFFF66;
+    text-shadow: 0 0 3px #000;
+}
 

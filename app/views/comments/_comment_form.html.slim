@@ -4,6 +4,20 @@
       =form_with(model:@comment, url: comments_path(port.id), method: :post, local: true) do |f|
         =f.hidden_field :user_id, value: current_user.id
         =f.hidden_field :admin_id, value: port.admin.id
-        =f.label :content, "Please leave your commnet if you want to know anything else."
+        =f.label :content, "Please leave your comment if you want to know anything else."
         =f.text_area :content
+        
+        =f.label :request, "Please leave your request if you want to know anything else."
+        =f.text_area :request
+
+        div.rate.margin-vertical-3 
+            #star.form-group
+              = f.label :port_rate
+              = f.hidden_field :port_rate, id: :portrate_star
+          
+            #spot-star.form-group
+              = f.label :spot_rate
+              = f.hidden_field :spot_rate, id: :spotrate_star
+
+          
         =f.submit "comment!", class: "button shadow secondary"

@@ -1,4 +1,4 @@
-      
+  
 
       article.grid-container
         .grid-x.cell
@@ -84,7 +84,12 @@
               
             -if current_user
               =render "comments/comment_form", port: @port
-                    
+              
+              div class="port_rate_show" data-score="#{@average_port_rate}"  
+                label Average rate of the port / #{@average_port_rate}
+
+              div class="spot_rate_show" data-score="#{@average_spot_rate}"  
+                label Average rate of the tour spots/ #{@average_spot_rate}
                     
             div class="tabs-panel is active" id="panel2" role="tabpanel" aria-labelledby="panel2-label" aria-hidden="false"
               div class="grid-x grid-margin-x medium-up-3 large-up-5"
@@ -117,9 +122,61 @@
                   h5 TO BE ANNOUNCED 
                   a href="#" class="button hollow tiny expanded" Buy Now
       
-      
 
+  
+
+      javascript:
         
-
-
-
+        $(function(){
+          $('#star').raty({
+            size: 36,
+            starOff: "#{asset_path('star-off.png')}",
+            starOn: "#{asset_path('star-on.png')}",
+            starHalf: "#{asset_path('star-half.png')}",
+            scoreName: 'comment[port_rate]',
+            half: true,
+            targetType: 'number',
+            targetKeep: true,
+            click: function(score, e) { 
+            $("#portrate_star").val(score) }
+            });
+        });
+        
+        $(function(){
+          $('#spot-star').raty({
+            size: 36,
+            starOff: "#{asset_path('star-off.png')}",
+            starOn: "#{asset_path('star-on.png')}",
+            starHalf: "#{asset_path('star-half.png')}",
+            scoreName: 'comment[spot_rate]',
+            half: true,
+            targetType: 'number',
+            targetKeep: true,
+            click: function(score, e) { 
+            $("#spotrate_star").val(score) }
+            });   
+        });
+        
+        $(function(){
+          $('.port_rate_show').raty({
+            size: 36,
+            readOnly: true,
+            starOn: "#{asset_path('star-on.png')}",
+            starOff: "#{asset_path('star-off.png')}",
+            starHalf: "#{asset_path('star-half.png')}",
+            score: function() {  
+            return $(this).attr('data-score');  } 
+          });
+       });
+       
+        $(function(){
+          $('.spot_rate_show').raty({
+            size: 36,
+            readOnly: true,
+            starOn: "#{asset_path('star-on.png')}",
+            starOff: "#{asset_path('star-off.png')}",
+            starHalf: "#{asset_path('star-half.png')}",
+            score: function() {  
+            return $(this).attr('data-score');  } 
+          });
+       });

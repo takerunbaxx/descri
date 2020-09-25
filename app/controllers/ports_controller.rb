@@ -2,6 +2,9 @@ class PortsController < ApplicationController
   
   def index
     @ports =Port.all
+    from  = Time.current.at_beginning_of_day
+    to    = (from + 6.day).at_end_of_day
+    @add_timing = Port.where(created_at: from...to)
   end
 
   def new
@@ -18,6 +21,14 @@ class PortsController < ApplicationController
   
   def show
     @port = Port.find(params[:id])
+    
+    if @port.comments.blank?
+      @average_port_rate = 0
+      @average_spot_rate = 0
+    else
+     @average_port_rate = @port.comments.average(:port_rate).round(1)
+     @average_spot_rate = @port.comments.average(:spot_rate).round(1)
+    end
   end
   
   def edit
@@ -52,7 +63,7 @@ private
       :contact1, 
       :contact2,
       :admin_id,
-      images: [] )
+      port_images:[])
     
   end
 

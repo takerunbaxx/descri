@@ -14,6 +14,7 @@ RSpec.describe Port do
    end 
    
     it "is OK to create new port with all info ?" do
+        
       port3 = Port.new(
           id: 4,
           name: "Test",
