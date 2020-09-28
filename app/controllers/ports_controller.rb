@@ -1,4 +1,6 @@
 class PortsController < ApplicationController
+    before_action :correct_admin, only: [:destroy]
+
   
   def index
     @ports =Port.all
@@ -44,6 +46,9 @@ class PortsController < ApplicationController
   end
   
   def destroy
+    @port.destroy
+    flash[:alert] = '該当の港を削除しました。'
+    redirect_back(fallback_location: ports_path)
   end
 
 
@@ -65,6 +70,13 @@ private
       :admin_id,
       port_images:[])
     
+  end
+  
+  def correct_admin
+    @port = current_admin.ports.find_by(id: params[:id])
+    unless @port
+      redirect_to root_url
+    end
   end
 
 
