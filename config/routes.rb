@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/show'
+  get 'users/following_port'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
   root to: "toppages#index"
@@ -30,5 +32,11 @@ Rails.application.routes.draw do
     collection do
       get :comment_index end
   end
+  
+  resources :users, only:[:show] do
+    collection do
+      get :following_port end
+  end
 
+  resources :relationships, only: [:create, :destroy]
 end

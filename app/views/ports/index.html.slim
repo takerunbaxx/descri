@@ -18,15 +18,23 @@ div.off-canvas-content data-off-canvas-content=""
             =image_tag port.port_images[0].variant(resize: "550x550"), class: "port-sub-image1 image_preview hidden"
           -else
             =image_tag "https://placehold.it/550x550", class: "thumbnail"
+          
+          div.grid-x.margin-top-1
+            .follow_button.margin-right-1
+              - if current_user && current_user.following?(port)
+                div id='follow-form_#{port.id}'
+                  = render 'relationships/unfollow', port: port
+              - else
+                  = render 'relationships/follow', port: port
 
-          h5.text-center
-            =link_to "#{port.name}", port_path(port.id), data: {"turbolinks"=>false}
-            -if port.created_at = @add_timing 
-              span.margin-left-1
-                i class="fas fa-lightbulb"          
+
+            h5.text-center
+              =link_to "#{port.name}", port_path(port.id), data: {"turbolinks"=>false}
+              -if port.created_at = @add_timing 
+                span.margin-left-1
+                  i class="fas fa-lightbulb"          
           -if current_admin
             .button-group.align-center
               =link_to "Edit port", edit_port_path(port.id), class: "button warning"
               =link_to "Delete port", port_path(port.id), method: :delete, data: {confirm: "Are you sure?"}, class: "button alert"
-      
       

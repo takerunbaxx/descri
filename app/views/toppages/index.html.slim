@@ -17,7 +17,7 @@ div
 
   -if user_signed_in?
     .toppage-button.align-center.grid-x
-      = link_to "See All Ports" , ports_path, class: "button rounded bordered shadow secondary cell large-4 signup margin-top-3"
+      = link_to "GO TO USER PAGE" , user_path(current_user.id), class: "button rounded bordered shadow primary cell large-4 signup margin-top-3"
 
   -else
     .toppage-button.align-center.grid-x

@@ -1,0 +1,3 @@
+    = form_with(model: current_user.relationships.build, method: :post) do |f|
+      = hidden_field_tag :port_id, port.id
+      = f.submit 'Follow', class: "button success"

@@ -4,5 +4,7 @@ class Port < ApplicationRecord
     
     belongs_to :admin
     has_many :comments
+    has_many :relationships
+    
     
 end

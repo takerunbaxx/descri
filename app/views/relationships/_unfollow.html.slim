@@ -1,0 +1,4 @@
+    = form_with(model: current_user.relationships.find_by(port_id: port.id), method: :delete) do |f|
+      = hidden_field_tag :port_id, port.id 
+      = f.submit 'Unfollow', class: "button secondary"
+    end

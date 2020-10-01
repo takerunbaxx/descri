@@ -1,0 +1,37 @@
+    
+    
+    article class="grid-container margin-top-2"
+      
+      div class="grid-x grid-margin-x"
+    
+        div class="medium-7 large-6 cell"
+          h1 Your Following Ports!
+          p class="subheader" 
+            | You can see the ports that you frequently visit here.
+
+          button class="button" Take a Tour
+
+
+      div class=""
+      <hr>
+
+      div class=""
+        p class="lead"
+          | See below
+
+        div class="grid-x grid-margin-x small-up-1 medium-up-2 large-up-3 following_port"
+          -@following_ports.each do |following_port|
+            .cell
+              .callout
+                h4 #{following_port.name}
+                
+                - unless following_port.port_images[0] == nil
+                  =image_tag following_port.port_images[0].variant(resize: "400x370"), class: "port-sub-image1 image_preview hidden"
+                -else
+                  img src="https://placehold.it/400x370&amp;text=Pegasi B" alt="image of a planet called Pegasi B"
+                
+                p class="lead" 
+                  | #{following_port.name}
+          
+                p class="subheader" 
+                  | #{following_port.information}
